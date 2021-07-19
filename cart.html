@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="total">Your Total amount</div>
+    <div id="amount">0</div>
+    <label for="coupon">Cupon</label>
+    <input type="text" name="coupon" id="coupon">
+    <button onclick="applycoupon()">Apply coupon</button>
+    <button onclick="purchase()">proceed for payment</button>
+</body>
+</html>
+<script>
+    var cart=localStorage.getItem('carts')
+    cart=JSON.parse(cart)
+    console.log(cart);
+    var div=document.createElement('div')
+    div.setAttribute('class','wrap')
+    for(var i=0;i<cart.length;i++){
+        var div2=document.createElement('div')
+        div2.setAttribute('class','card')
+        div2.innerHTML=`<div class="img"><img src="${cart[i].url}" alt=""></div>
+    <div class="details">
+        <div>${cart[i].name}</div>
+        <div>${cart[i].price}</div>
+    </div>`
+    div.append(div2)
+    }
+    document.body.append(div)
+
+    function purchase(){
+        window.location.href=''
+    }
+   
+   var newsum=0
+  
+   function applycoupon(){
+    var sum=0
+    var coupon=document.getElementById('coupon')
+    var amount=document.getElementById('amount')
+    for(var i=0;i<cart.length;i++){
+      sum+=cart[i].price 
+   
+       sum=sum-(sum*30/100)
+   
+   
+    }
+   amount.innerHTML=sum;
+   console.log(newsum);
+   }
+
+</script>
