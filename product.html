@@ -67,6 +67,7 @@
   <div class="sorting">
      <button onclick="htol()">High to Low</button>
      <button onclick="ltoh()">Low to High</button>
+     <button onclick="carte()">Go to Cart</button>
   </div> 
 </body>
 </html>
@@ -130,8 +131,69 @@
     cart.push(product[a])
     localStorage.setItem('carts',JSON.stringify(cart))
     }
-
-    function htol(){
-
+    var high=[]
+    var cartt=localStorage.getItem('carts')
+    cartt=JSON.parse(cartt)
+    for(var i=0;i<cartt.length;i++){
+        high.push(cartt[i].price)
     }
+    console.log(high);
+   function carte(){
+       window.location.href='cart.html'
+   }
+   var price=[]
+   for(var i=0;i<product.length;i++){
+       price.push(+product[i].price)
+   }
+   price.sort(function(a,b){
+       return b-a;
+   });
+   console.log(price);
+   
+    function htol(){
+     product.sort(function(a,b){
+         return Number(b.price)-Number(a.price)
+     })
+     var h=document.querySelector('.wrap')
+     h.innerHTML=''
+     var div=document.createElement('div')
+    div.setAttribute('class','wrap')
+    for(var i=0;i<product.length;i++){
+        var div2=document.createElement('div')
+        div2.setAttribute('class','card')
+        div2.innerHTML=` <div class="img"><img src="${product[i].url}" alt=""></div>
+    <div class="details">
+        <div>${product[i].name}</div>
+        <div>${product[i].price}</div>
+    </div>
+    <button onclick="add(${i})">Add to Cart</button>
+    `
+    div.append(div2)
+    }
+    document.body.append(div)
+    
+    
+    function ltoh(){
+        product.sort(function(a,b){
+            return Number(a.price)-Number(b.price)
+        })
+        var h=document.querySelector('.wrap')
+     h.innerHTML=''
+     var div=document.createElement('div')
+    div.setAttribute('class','wrap')
+    for(var i=0;i<product.length;i++){
+        var div2=document.createElement('div')
+        div2.setAttribute('class','card')
+        div2.innerHTML=` <div class="img"><img src="${product[i].url}" alt=""></div>
+    <div class="details">
+        <div>${product[i].name}</div>
+        <div>${product[i].price}</div>
+    </div>
+    <button onclick="add(${i})">Add to Cart</button>
+    `
+    div.append(div2)
+    }
+    document.body.append(div)
+    }
+}
 </script>
