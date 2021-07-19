@@ -5,14 +5,85 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+           
+        }
+        .wrap{
+            width: 50%;
+            /* border: 1px solid red; */
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content:space-around;
+        }
+        .card{
+            border: 1px solid rgb(245, 240, 240);
+            width:23% ;
+            margin-bottom: 30px;
+            background-color: aliceblue;
+          
+        }
+        img{
+            width:70%;
+            margin-left: 15%;
+        }
+        .details{
+            /* border: 1px solid red; */
+            font-size: 20px;
+            width: 70%;
+            margin: auto;
+        }
+        button{
+            width: 10%;
+           margin-left: 1%;
+            height: 40px;
+            margin-top: 10px;
+            border: none;
+        }
+    
+        #heading{
+            width: 40%;
+            margin: auto;
+            /* border: 1px solid red; */
+            text-align: center;
+            font-size: 40px;
+        }
+       #container{
+           /* border: 1px solid red; */
+           margin-bottom: 2%;
+           width: 60%;
+          
+       }
+       #total{
+           font-size: 20px;
+       }
+       #amount{
+           font-size: 40px;
+       }
+       #coupon{
+           font-size: 10px;
+       }
+       label{
+           font-size: 20px;
+       }
+       h1{
+           text-align: center;
+           font-size: 50px;
+       }
+    </style>
 </head>
 <body>
+    <h1>You Cart</h1>
+    <div id="container">
     <div id="total">Your Total amount</div>
     <div id="amount">0</div>
     <label for="coupon">Cupon</label>
     <input type="text" name="coupon" id="coupon">
     <button onclick="applycoupon()">Apply coupon</button>
     <button onclick="purchase()">proceed for payment</button>
+</div>
 </body>
 </html>
 <script>
@@ -34,7 +105,7 @@
     document.body.append(div)
 
     function purchase(){
-        window.location.href=''
+        window.location.href='checkout.html'
     }
    
    var newsum=0

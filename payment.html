@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrap{
+            /* border: 1px solid red; */
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            margin: auto;
+            background-color: rgb(188, 238, 221);
+            padding: 15px;
+        }
+        input{
+            width: 50%;
+            height: 30px;
+            margin-left: 20%;
+            margin-bottom: 30px;
+        }
+        label{
+            font-size: 20px;
+            margin-left: 20%;
+        }
+        button{
+            width:40%;
+            margin-left: 25%;
+            height: 40px;
+            border: none;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+     <label for="card">Enter You Debit Card no</label>
+     <input type="number" id="card" required>
+      <label for="exp">exp date</label>
+      <input type="date" id="exp" required>
+      <label for="cvv">Cvv</label>
+      <input type="password" id="cvv" required>
+      <label for="pass">pin</label>
+      <input type="passwrod" id="pass" required>
+     <button onclick="done()">Place order</button>
+    </div>
+</body>
+</html>
+<script>
+var card=document.getElementById('card')
+var date=document.getElementById('exp')
+var cvv=document.getElementById('cvv')
+var pin=document.getElementById('pass')
+
+
+function done(){
+    if(card.value<16){
+        alert('Wrong card detail')
+    }
+    else{
+        setTimeout(()=>{
+            alert('Your order is successfully placed')
+        },3000);
+    }
+}
+
+
+
+</script>

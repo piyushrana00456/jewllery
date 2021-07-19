@@ -5,8 +5,65 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+           
+        }
+        .wrap{
+            width: 90%;
+            /* border: 1px solid red; */
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .card{
+            border: 1px solid rgb(245, 240, 240);
+            width:23% ;
+            margin-bottom: 30px;
+            background-color: aliceblue;
+          
+        }
+        img{
+            width:70%;
+            margin-left: 15%;
+        }
+        .details{
+            /* border: 1px solid red; */
+            font-size: 20px;
+            width: 70%;
+            margin: auto;
+        }
+        button{
+            width: 40%;
+            margin-left: 30%;
+            height: 40px;
+            margin-top: 10px;
+            border: none;
+        }
+        .sorting{
+            /* border: 1px solid red; */
+            width: 20%;
+           float: right;
+           margin-bottom: 5%;
+        }
+        .sorting>button{
+            width: 20%;
+            margin-left:80%;
+
+        }
+        #heading{
+            width: 40%;
+            margin: auto;
+            /* border: 1px solid red; */
+            text-align: center;
+            font-size: 40px;
+        }
+    </style>
 </head>
 <body>
+    <div id="heading"><h1>Jewells</h1></div>
   <div class="sorting">
      <button onclick="htol()">High to Low</button>
      <button onclick="ltoh()">Low to High</button>
@@ -32,7 +89,7 @@
         },
         {name: 'Gold Chain',
             price:100000,
-            url:'https://staticimg.titan.co.in/Tanishq/Catalog/511517CNVAA00_1.jpg?impolicy=pqmed&imwidth=640'
+            url:'data:image/jpeg;base64,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'
         },
         {name: 'diamond chain',
             price:200000,
